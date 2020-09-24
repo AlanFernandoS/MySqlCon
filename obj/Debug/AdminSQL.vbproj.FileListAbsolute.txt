@@ -1,0 +1,10 @@
+C:\Users\alanf\source\repos\AdminSQL\AdminSQL\bin\Debug\AdminSQL.dll
+C:\Users\alanf\source\repos\AdminSQL\AdminSQL\bin\Debug\AdminSQL.pdb
+C:\Users\alanf\source\repos\AdminSQL\AdminSQL\bin\Debug\AdminSQL.xml
+C:\Users\alanf\source\repos\AdminSQL\AdminSQL\obj\Debug\AdminSQL.vbprojAssemblyReference.cache
+C:\Users\alanf\source\repos\AdminSQL\AdminSQL\obj\Debug\AdminSQL.Resources.resources
+C:\Users\alanf\source\repos\AdminSQL\AdminSQL\obj\Debug\AdminSQL.vbproj.GenerateResource.cache
+C:\Users\alanf\source\repos\AdminSQL\AdminSQL\obj\Debug\AdminSQL.vbproj.CoreCompileInputs.cache
+C:\Users\alanf\source\repos\AdminSQL\AdminSQL\obj\Debug\AdminSQL.dll
+C:\Users\alanf\source\repos\AdminSQL\AdminSQL\obj\Debug\AdminSQL.xml
+C:\Users\alanf\source\repos\AdminSQL\AdminSQL\obj\Debug\AdminSQL.pdb

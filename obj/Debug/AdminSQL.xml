@@ -1,0 +1,408 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+AdminSQL
+</name>
+</assembly>
+<members>
+<member name="T:AdminSQL.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:AdminSQL.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:AdminSQL.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:AdminSQL.AdmSQL">
+ <summary>
+ Creted by Alan Fernando Santacruz Rodríguez 2020
+ For the community with love and passion
+ </summary>
+</member>
+<member name="M:AdminSQL.AdmSQL.RetornaElConnectionString">
+ <summary>
+ Permite retornar el string para la conexión creado en base al constructor de la clase.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.RetornaIgualdades(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+ <summary>
+ Permite de una manera tener las comparaciones necesarias para relizar el cambio o actualizacion
+ regresa una lista de manera que quedan las columnas igualadas de esta manera Columna(n)='Lis(n)'
+ </summary>
+ <param name="Columna"></param>
+ <param name="Lis2"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.RetornaIgualdadesV2(System.String,System.String)">
+ <summary>
+ Columa = 'DatoToCompare' Nota: No Añade un espacio en blanco al final
+ </summary>
+ <param name="Columna"></param>
+ <param name="DatoToCompare"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.ArmaConSql(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+ <summary>
+ Retorna el string de consulta basado en
+ Select C1,C2,...,Cn From TablaSQL Where Cond1 Or/And Cond2 ...Or/And CondN
+ </summary>
+ <param name="TablaSQL"></param>
+ <param name="lColum"></param>
+ <param name="CondBusqueda"></param>
+ <param name="Condicionante"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.ArmaConSql(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+ <summary>
+ Permite estructurar una consulta condicionada
+ Select colum1,colum2,...,columnN form TablaSQL where Con1 and Cond2 ... and CondN
+ </summary>
+ <param name="lColum"></param>
+ <param name="TablaSQL"></param>
+ <param name="CondBusqueda"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.ArmaConSql(System.String,System.Collections.Generic.List{System.String})">
+ <summary>
+ Estructura una busqueda de manera que select * from TablaSQL where Cond1 and Cond2 ... and ConN
+ </summary>
+ <param name="TablaSQL"></param>
+ <param name="CondBusqueda"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.ArmaConSql(System.String)">
+ <summary>
+ Retorna Select * from TablaSQL
+ </summary>
+ <param name="TablaSQL"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.ArmaConSql(System.String,System.String)">
+ <summary>
+ Simplificada para el uso de simplemente el String de condicion
+ Select * from TablaSQL where CondBusqueda
+ </summary>
+ <param name="TablaSQL"></param>
+ <param name="CondBusqueda"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.UpdateOnSQL(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.SortedList{System.String,System.String})">
+ <summary>
+ Dim ComandoSql = "Update @TableSql  Set @NewValues Where @Conditions"
+ </summary>
+ <param name="TablaSQL"></param>
+ <param name="Condiciones"></param>
+ <param name="NewData"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.UpdateOnSQL(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+ <summary>
+ Realizara una instrucción basada en
+ Update TablaSQL set C1 ='CambiosSQL1', C2 ='CambiosSQL2',..., CN ='CambiosSQLN' Where Con1 And Con2 And Con3.
+ Devuelve un true en caso de ser exitosa la actualización
+ </summary>
+ <param name="TablaSQL"></param>
+ <param name="CambiosSQL"></param>
+ <param name="Condiciones"></param>
+</member>
+<member name="M:AdminSQL.AdmSQL.JoinTheConditionsClauses(System.Collections.Generic.List{System.String})">
+ <summary>
+ Cond1 and Cond2 ...and CondN
+ </summary>
+ <param name="Condiciones"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.ExisteLaconsulta(System.String,System.String,System.String,System.Object)">
+ <summary>
+ Examina en la Tabla SQL en base a la consulta y para acelerar el proceso solo se toma una columna, si esta existe existe el resto
+ para ello es necesario recuperar el contenido de la columna en base a un tipo propuesto.
+ </summary>
+ <param name="TablaSQL"></param>
+ <param name="Consulta"></param>
+ <param name="MyColumn"></param>
+ <param name="MyType"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.ExisteLaClave(System.String,System.String,System.String)">
+ <summary>
+ Regresa un string que dice
+ Existe si la clave fue encontrada
+ No existe, si la clave no fue encontrada
+ Error: @Error, si hubo algun error por parte de la instruccion, el @Error indica el error que sucedio
+ </summary>
+ <param name="Tabla"></param>
+ <param name="Columna"></param>
+ <param name="Dato"></param>
+ <returns> Existe, No Existe, Error: @Error </returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.ExistsTwoColumnKey(System.String,System.String,System.String,System.String,System.String)">
+ <summary>
+ Retorna un string con 'Existe' o 'No existe', o en caso de error, devuelve del error
+ </summary>
+ <param name="Tabla"></param>
+ <param name="Columna1"></param>
+ <param name="Dato1"></param>
+ <param name="Columna2"></param>
+ <param name="Dato2"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.ExistsTwoColumnKey(System.String,System.String,System.String,System.String,System.String,System.String)">
+ <summary>
+ Retorna un string con Existe o No existe, o en caso de error, devuelve del error
+ "Select TOP 1 PERCENT @Columna From @Tabla where @Columna='@Dato' and @Colum2='@Dato2' and @ExtraCondition"
+ </summary>
+ <param name="Tabla"></param>
+ <param name="Columna1"></param>
+ <param name="Dato1"></param>
+ <param name="Columna2"></param>
+ <param name="Dato2"></param>
+ <param name="ExtraCondition"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.SqlReader2List(System.String,System.Collections.Generic.List{System.String})">
+ <summary>
+ Se regresa la informacion de la consulta en una lista con el orden previsto según el orden de la otras dos listas
+ </summary>
+ <param name="Consulta"></param>
+ <param name="MyColumns"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.SqlReader2List(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String}@)">
+ <summary>
+ Se regresa la informacion de la consulta en una lista con el orden previsto según el orden de la otras dos listas
+ </summary>
+ <param name="Consulta"></param>
+ <param name="MyColumns"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.SqlReader2List(System.String,System.String,System.Collections.Generic.List{System.String})">
+ <summary>
+ Nueva Version de esta funcion, tabla
+ "Select " + ConcatenaColumnas(MyColumsInSearch) + " from " + Table + " where " + Condition
+ Only Obtain the fist value
+ </summary>
+ <param name="Table"></param>
+ <param name="Condition"></param>
+ <param name="MyColumsInSearch"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.SqlReaderDownOnlyOneColumn(System.String,System.String,System.Collections.Generic.List{System.String}@,System.String,System.String,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="Table">Tabla a consultar</param>
+ <param name="Column">Columna a leer</param>
+ <param name="MyListaDeErrores">Son los errores que se generan</param>
+ <param name="Condition">Son las clausulas de condiciones</param>
+ <param name="ClauseOrder">Aplica la clausula de order</param>
+ <param name="IsUnique">Aplica para el primer elemento de la lista</param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.InsertaEnSql(System.String,System.Collections.Generic.List{System.String})">
+ <summary>
+ Esta función hace uso de
+ Insert Inot TablaSQL Values(MyValues1,MyValues2,...MyValuesN)
+ </summary>
+ <param name="TablaSQL"></param>
+ <param name="MyValues"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.InsertaSQLSpecificColums(System.String,System.Collections.Generic.SortedList{System.String,System.String})">
+ <summary>
+ Los valores como @NULL, pueden ser remplazados como NULL, sin comillas para eliminar los valores que no tienen validad
+ Dentro del comando '@NULL'->NULL
+ </summary>
+ <param name="TablaSQL"></param>
+ <param name="Data2Insert"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.InsertaSQLSpecificColums(System.String,System.Collections.Generic.SortedList{System.String,System.String},System.String)">
+ <summary>
+ With Column Of Hour, The data that you put in ToReplaceWithHourServer is replaced by  SYSDATETIME()
+ </summary>
+ <param name="TablaSQL"></param>
+ <param name="Data2Insert"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.InsertComillas(System.Collections.Generic.List{System.String})">
+ <summary>
+ Permite pasar de
+ Dato-> 'Dato'
+ Pero con elementos de una lista
+ </summary>
+ <param name="MyList"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.SqlReaderDown2List(System.String,System.String@)">
+ <summary>
+ Permite ejecutar la consulta definida, siendo la TablaSQL unicamente como dato informativo.
+ </summary>
+ <param name="Consulta"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.SqlReaderDown2List(System.String,System.Collections.Generic.List{System.String}@)">
+ <summary>
+ 
+ </summary>
+ <param name="Consulta"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.SqlReaderDown2List(System.String,System.Boolean@)">
+ <summary>
+ Permite ejecutar la consulta definida, siendo la TablaSQL unicamente como dato informativo.
+ </summary>
+ <param name="Consulta"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.SqlReaderDown2ListWithDetailError(System.String,System.Collections.Generic.List{System.String}@)">
+ <summary>
+ Permite ejecutar la consulta definida, siendo la TablaSQL unicamente como dato informativo.
+ </summary>
+ <param name="Consulta"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.SqlReaderDown2ListAsync(System.String)">
+ <summary>
+ Permite ejecutar la consulta definida, siendo la TablaSQL unicamente como dato informativo.
+ </summary>
+ <param name="Consulta"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.BusquedaDeCambioEnSql(System.String,System.String,System.String,System.String,System.String@)">
+ <summary>
+ Permite realizar la consulta de esta manera
+ Select MyColR from MyTable where MyColB='MyStr'
+ </summary>
+ <param name="Mytable"></param>
+ <param name="MyColR"></param>
+ <param name="MyColB"></param>
+ <param name="MyStr"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.InsertaEnSql(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+ <summary>
+ Aquí se cargan los registros que consideramos valiosos, recuerda encomillar aquellos datos que de verdad
+ lo necesiten
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.IsEmplyTheTable(System.String)">
+ <summary>
+ Return -1 en caso de un error con SQL
+ Return 0 si no esta vacia
+ Return 1 si esta vacia
+ </summary>
+ <param name="MyTable"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.DataParaTable(System.String,System.String@)">
+ <summary>
+ Recuerda que este método conserva todos los metodos y clases derivadas de cada uno de los campos, es decir
+ Que si en la base de datos es una fecha, aquí tambien es una fecha, lo que no he determinado es si mantiene las relaciones
+ de correspondencia, es decir, si se trata de una Foregin Key si conserva esa relacion directamente, por que si fuera así nos
+ ahorraria mucho trabajo de aquí en delante.
+ </summary>
+ <param name="MyConsulta"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.CreaTb(System.String,System.Collections.Generic.List{System.String})">
+ <summary>
+ Esta funcion retorna un uno en caso de exito, -3 en caso de que ya exista
+ -2 En caso de que exista una tabla con el número de columnas incompletas
+ -1 En el caso de un error en SQL y no se haya creado
+ </summary>
+ <param name="NombreTb"></param>
+ <param name="Columnas"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.IsTableExists(System.String,System.Int32)">
+ <summary>
+ Permite conocer si una tabla en Sql existe de manera contraria, regresa un -1
+ El caso 0 es si no contiene el número esperado de columnas la tabla
+ </summary>
+ <param name="NombreTb"></param>
+ <param name="NumberOfColums"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.IsOnlyWith(System.Collections.Generic.List{System.String},System.String)">
+ <summary>
+ Retorna true si el unico caracter existente es el antes propuesto.
+ </summary>
+ <param name="MyList"></param>
+ <param name="MyStrCmp"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.IsOnlyWith(System.Collections.Generic.List{System.Boolean},System.Boolean)">
+ <summary>
+ Retorna true si el unico caracter existente es el antes propuesto.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.FiltroInteligente(System.Collections.Generic.List{System.String}@)">
+ <summary>
+ Devuelve una lista con las posiciones de MyList que no sean NULL, o con simplemente "".
+ </summary>
+ <param name="MyList"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.FiltroInteligenteV2(System.Collections.Generic.List{System.String}@)">
+ <summary>
+ 
+ </summary>
+ <param name="MyList"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.ArmaNuevaLista(System.Collections.Generic.List{System.String}@,System.Collections.Generic.List{System.Int32})">
+ <summary>
+ En base a una lista de posiciones regresa otra con solo las posiciones especificadas de MyList.
+ </summary>
+ <param name="MyList"></param>
+ <param name="MyPos"></param>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.FindAndReduceBoolean(System.Collections.Generic.List{System.Boolean})">
+ <summary>
+ This functions is used to return true if any of the list contains a true; this was created for work into Empleados
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:AdminSQL.AdmSQL.VerifiTextConLE(System.String,System.Collections.Generic.List{System.String}@,System.String@,System.String)">
+ <summary>
+ Permite verificar un texto de manera que si contiene información se anida a la lista
+ de otra manera se anida el texto propuesto al error
+ </summary>
+<param name="ListData">"Lista de datos"</param>
+</member>
+<member name="M:AdminSQL.AdmSQL.VerifiTextConLEDecimal(System.String,System.Collections.Generic.List{System.String}@,System.String@,System.String,System.String,System.Boolean,System.Int32)">
+ <summary>
+ Permite determinar si el texto es un decimal válido, en caso de que pueda estar vacio el campo se agrega a la lista un "0"
+ Si el decimal es válido se redondea a los decimales especificados
+
+ </summary>
+ <param name="MyTxt"></param>
+ <param name="ListData"></param>
+ <param name="MyError"></param>
+ <param name="TextoDeErrorVacio"></param>
+ <param name="TextoDeErrorMalaConversion"></param>
+ <param name="CanBeEmply"></param>
+ <param name="NumeroDecimales"></param>
+</member>
+<member name="M:AdminSQL.AdmSQL.VerificaBooleano(System.String,System.Boolean@)">
+ <summary>
+ Retorna 0 para 
+ </summary>
+ <param name="MyTxtToCheck"></param>
+ <returns></returns>
+</member>
+</members>
+</doc>
